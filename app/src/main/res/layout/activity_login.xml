@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_white">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="登录"
+        android:textColor="@color/color_black"
+        android:textSize="19sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/textView"
+        android:src="@mipmap/icon_logo" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/imageView4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="80dp">
+
+        <ImageView
+            android:id="@+id/tv_name_id"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/icon_phone" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="30dp"
+            android:background="@color/line"
+            android:layout_toRightOf="@+id/tv_name_id"
+            android:layout_marginLeft="4dp"
+            android:id="@+id/view2" />
+
+        <EditText
+            android:id="@+id/et_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/view55"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tv_name_id"
+            android:background="@color/color_lucency"
+            android:hint="请输入您的手机号码" />
+
+        <View
+            android:id="@+id/view55"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/tv_name_id"
+            android:layout_marginTop="10dp"
+            android:background="@color/line" />
+
+        <ImageView
+            android:id="@+id/tv_id_en"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/tv_name_id"
+            android:layout_marginTop="35dp"
+            android:src="@mipmap/icon_key" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="30dp"
+            android:layout_above="@+id/view6"
+            android:layout_alignLeft="@+id/view2"
+            android:layout_alignStart="@+id/view2"
+            android:background="@color/line" />
+        <EditText
+            android:id="@+id/et_yanzm"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/view6"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/tv_id_en"
+            android:background="@color/color_lucency"
+            android:hint="请输入验证码" />
+
+        <Button
+            android:id="@+id/btn_yanzhengma"
+            android:layout_width="115dp"
+            android:layout_height="40dp"
+            android:layout_above="@+id/view6"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="获取验证码"
+            android:background="@drawable/btn_saoma_home"
+            android:textColor="@color/color_white" />
+
+        <View
+            android:id="@+id/view6"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/tv_id_en"
+            android:layout_marginTop="10dp"
+            android:background="@color/line" />
+
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="220dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/view6"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/btn_saoma_home"
+            android:text="立即登陆"
+            android:textColor="@color/color_white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="63dp"
+            android:text="合肥市绅士网络科技有限公司" />
+    </RelativeLayout>
+
+</RelativeLayout>

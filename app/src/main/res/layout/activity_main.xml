@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/srl_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/rl_jiekuan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_white">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="借款"
+                android:textColor="@color/color_black"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <com.youth.banner.Banner xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@+id/textView"
+                android:layout_marginTop="3dp" />
+
+            <RelativeLayout
+                android:id="@+id/rl_repayment"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_below="@+id/banner"
+                android:layout_margin="20dp"
+                android:visibility="gone"
+                android:background="@drawable/bg_home"
+                android:padding="19dp">
+
+                <TextView
+                    android:id="@+id/tv_dai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="待还款金额"
+                    android:textColor="@color/color_white"
+                    android:textSize="16dp" />
+
+                <TextView
+
+                    android:id="@+id/tv_repay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_dai"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="15dp"
+                    android:text="0000"
+                    android:textColor="@color/color_white"
+                    android:textSize="40sp" />
+
+                <TextView
+
+                    android:id="@+id/tv_yuan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/tv_repay"
+                    android:layout_marginLeft="3dp"
+                    android:layout_toEndOf="@+id/tv_repay"
+                    android:layout_toRightOf="@+id/tv_repay"
+                    android:text="元"
+                    android:textColor="@color/color_white"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:id="@+id/tv_liji"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_repay"
+                    android:layout_marginTop="5dp"
+                    android:text="按时还款  可立即借款"
+                    android:textColor="#C5D9F1" />
+
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/tv_liji"
+                    android:layout_marginTop="5dp"
+                    android:background="#B3CFEF" />
+
+                <TextView
+                    android:id="@+id/tv_date_repay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/view3"
+                    android:layout_marginTop="11dp"
+                    android:text="还款日期 "
+                    android:textColor="@color/color_white" />
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_borrow_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/banner"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:id="@+id/texttv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="选择金额"
+                    android:textColor="@color/color_black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginStart="11dp"
+                    android:layout_toEndOf="@+id/texttv"
+                    android:layout_toRightOf="@+id/texttv"
+                    android:text="1000元"
+                    android:textColor="@color/color_black"
+                    android:textSize="16sp" />
+
+                <com.zhouyou.view.seekbar.SignSeekBar
+                    android:id="@+id/mSignSeekBar1"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_below="@+id/texttv"
+                    app:ssb_max="90"
+                    app:ssb_progress="100"
+                    app:ssb_second_track_color="@color/jingdu"
+                    app:ssb_show_thumb_shadow="true"
+                    app:ssb_thumb_radius="9dp"
+                    app:ssb_thumb_radius_on_dragging="15dp" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/texttv"
+                    android:layout_marginTop="13dp"
+                    android:text="0元"
+                    android:textColor="@color/color_black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/textView2"
+                    android:layout_alignBottom="@+id/textView2"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:text="1000元"
+                    android:textColor="@color/color_black"
+                    android:textSize="15sp" />
+
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/mSignSeekBar2"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="11dp"
+                    android:text="0天"
+                    android:textColor="@color/color_black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/text4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/textView3"
+                    android:layout_alignBottom="@+id/textView3"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:text="7天"
+                    android:textColor="@color/color_black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/textqixian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textView2"
+                    android:layout_marginTop="15dp"
+                    android:text="选择借款期限"
+                    android:textColor="@color/color_black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/mSignSeekBar2"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginStart="23dp"
+                    android:layout_toEndOf="@+id/tv_guanlifei"
+                    android:layout_toRightOf="@+id/tv_guanlifei"
+                    android:text="7天"
+                    android:textColor="@color/color_black"
+                    android:textSize="16sp" />
+
+                <com.zhouyou.view.seekbar.SignSeekBar
+                    android:id="@+id/mSignSeekBar2"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textqixian"
+                    app:ssb_max="90"
+                    app:ssb_progress="100"
+                    app:ssb_second_track_color="@color/jingdu"
+                    app:ssb_show_thumb_shadow="true"
+                    app:ssb_thumb_radius="9dp"
+                    app:ssb_thumb_radius_on_dragging="15dp" />
+
+                <TextView
+                    android:id="@+id/tv_shenqing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textView3"
+                    android:layout_marginTop="10dp"
+                    android:text="申请费：44" />
+
+                <TextView
+                    android:id="@+id/tv_xifei"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/tv_shenqing"
+                    android:layout_alignBottom="@+id/tv_shenqing"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:text="息费：11元" />
+
+                <TextView
+                    android:id="@+id/tv_guanlifei"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/tv_shenqing"
+                    android:layout_marginTop="15dp"
+                    android:text="用户管理费：55元" />
+
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/tv_guanlifei"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/line" />
+            </RelativeLayout>
+
+
+            <Button
+                android:id="@+id/btn_huankuan"
+                android:layout_width="274dp"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/btn_saoma_home"
+                android:text="我要还款"
+                android:textColor="@color/color_white"
+                android:visibility="gone" />
+            <Button
+                android:id="@+id/btn_nothing"
+                android:layout_width="274dp"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/bg_borrow_nothing"
+                android:visibility="gone"
+                android:text="审核失败"
+                android:textColor="@color/color_white" />
+            <Button
+                android:id="@+id/btn_next"
+                android:layout_width="274dp"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/btn_saoma_home"
+                android:text="立即借款"
+                android:textColor="@color/color_white" />
+        </RelativeLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</android.support.constraint.ConstraintLayout>
