@@ -26,6 +26,18 @@
                 android:textSize="19sp"
                 android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/tv_exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:text="退出登录"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/color_saoma_home"
+                android:textSize="14sp" />
+
             <com.youth.banner.Banner xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/banner"
                 android:layout_width="match_parent"

@@ -57,10 +57,12 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_huankuan;
     private int state = 0;
     private String loan;
+    private int result;
     private RelativeLayout rl_repayment, rel_borrow_money;
 
+    private BorrowMoneyActivity fatherActivity;
     private SignSeekBar msignSeekBar1, msignSeekBar2;
-    private TextView tv_repay, tv_date_repay;
+    private TextView tv_repay, tv_date_repay, tv_exit;
     float backm;
 
     private SwipeRefreshLayout srlMain;
@@ -76,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         btn_huankuan = findViewById(R.id.btn_huankuan);
         rl_repayment = findViewById(R.id.rl_repayment);
         btn_nothing = findViewById(R.id.btn_nothing);
+        tv_exit = findViewById(R.id.tv_exit);
 
 
         tv_date_repay = findViewById(R.id.tv_date_repay);
@@ -86,6 +89,15 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("token", MODE_PRIVATE);
         token = sharedPreferences.getString("token", "");
 
+
+        tv_exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         srlMain.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -168,12 +180,22 @@ public class MainActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, BorrowMoneyActivity.class);
-                Intent intent1 = getIntent();
-                String loginState = intent1.getStringExtra("token");
-                Log.e("ACETEST", "============" + loginState);
-                startActivity(intent);
+                getStatus();
+                if (result == -1) {
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    Toast.makeText(MainActivity.this,"登录失败",Toast.LENGTH_LONG).show();
+                    finish();
+                    return;
+                }else {
+                    Intent intent = new Intent(MainActivity.this, BorrowMoneyActivity.class);
+                    Intent intent1 = getIntent();
+                    String loginState = intent1.getStringExtra("token");
+                    Log.e("ACETEST", "============" + loginState);
+                    startActivity(intent);
 //                finish();
+                }
+
             }
         });
     }
@@ -192,6 +214,13 @@ public class MainActivity extends AppCompatActivity {
                         JsonParser parser = new JsonParser();
 
                         JsonObject data = parser.parse(response.body()).getAsJsonObject();
+                        result = data.get("result").getAsInt();
+                        if (result == -1) {
+                            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                            finish();
+                            return;
+                        }
 
                         status = data.get("Status").getAsInt();
 
@@ -199,6 +228,13 @@ public class MainActivity extends AppCompatActivity {
 
                         Log.e("dddddddddddddddd", "dfffffffffffffffsf" + llog);
                         loan = String.valueOf(llog);
+                        if (status == -1) {
+                            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                            Toast.makeText(MainActivity.this,"登录失败",Toast.LENGTH_LONG).show();
+                            finish();
+                            return;
+                        }
                         if (llog != 0) {
                             rl_repayment.setVisibility(View.VISIBLE);
                             rel_borrow_money.setVisibility(View.GONE);
@@ -217,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
                                             backm = data1.get("BackM").getAsFloat();
 
                                             String date = data1.get("RepayTime").getAsString();
-                                            tv_date_repay.setText("还款日期："+date);
+                                            tv_date_repay.setText("还款日期：" + date);
 
                                             /**
                                              * 如果状态是5获取到期应还
@@ -286,7 +322,7 @@ public class MainActivity extends AppCompatActivity {
                                                             public void onClick(View v) {
 
                                                                 if (state == 1) {
-                                                                    Toast.makeText(MainActivity.this,"该功能正在维护中......",Toast.LENGTH_SHORT).show();
+                                                                    Toast.makeText(MainActivity.this, "该功能正在维护中......", Toast.LENGTH_SHORT).show();
 //                                                                    Intent i = new Intent(MainActivity.this, WXActivity.class);
 //                                                                    i.putExtra("token", token);
 //                                                                    startActivity(i);

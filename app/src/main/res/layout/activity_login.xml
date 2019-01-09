@@ -121,14 +121,6 @@
             android:text="立即登陆"
             android:textColor="@color/color_white"
             android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="63dp"
-            android:text="合肥市绅士网络科技有限公司" />
     </RelativeLayout>
 
 </RelativeLayout>

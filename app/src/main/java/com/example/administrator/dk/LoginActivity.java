@@ -53,6 +53,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     //  private NetworkHelper helper = new NetworkHelper(this);
     private String codeNumberc;
     private String phoneNumber;
+    private String state = "1";
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -67,6 +69,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btn_yanzhengma.setOnClickListener(this);
         et_yanzm.setOnClickListener(this);
         btn_login.setOnClickListener(this);
+
+
 
     }
 

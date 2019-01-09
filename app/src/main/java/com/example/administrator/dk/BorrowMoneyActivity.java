@@ -273,8 +273,9 @@ public class BorrowMoneyActivity extends AppCompatActivity implements SwipeRefre
             @Override
             public void onClick(View v) {
                 String token = getSharedPreferences("token", MODE_PRIVATE).getString("token", "");
-                OkGo.<String>post("http://apk910okinfo.910ok.com/home/LoanList")
+                OkGo.<String>post("http://apk910okinfo.910ok.com/home/ExtendLoanList")
                         .params("token", token)
+                        .params("Identifier",9)
                         .execute(new StringCallback() {
                             @Override
                             public void onSuccess(Response<String> response) {
@@ -412,8 +413,8 @@ public class BorrowMoneyActivity extends AppCompatActivity implements SwipeRefre
      */
     private void getCost() {
         String tv = (String) tvjinge.getText();
-        if (tv.equals("500.00")) {
-            moneyID = 1;
+        if (tv.equals("600.00")) {
+            moneyID = 35;
         } else if (tv.equals("1000.00")) {
             moneyID = 3;
         }
@@ -460,8 +461,8 @@ public class BorrowMoneyActivity extends AppCompatActivity implements SwipeRefre
         backM = (String) tvjinge.getText();
         if (backM.equals("1000.00")) {
             moneyID = 3;
-        } else if (backM.equals("500.00")) {
-            moneyID = 1;
+        } else if (backM.equals("600.00")) {
+            moneyID = 35;
         }
 
         btnApply.setOnClickListener(new View.OnClickListener() {
